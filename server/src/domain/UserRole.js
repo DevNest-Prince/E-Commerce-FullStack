@@ -5,4 +5,4 @@ const UserRoles=Object.freeze({
 
 })
 
-module.exports =UserRoles;
+export default UserRoles;

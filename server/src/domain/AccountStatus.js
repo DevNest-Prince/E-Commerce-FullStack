@@ -7,4 +7,4 @@ const AccountStatus=Object.freeze({
     CLOSED:"CLOSED"
 });
 
-module.exports=AccountStatus;
+export default AccountStatus;

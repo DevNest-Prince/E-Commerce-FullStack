@@ -1,5 +1,7 @@
-const express=require('express');
-const connectDB = require('./db/db');
+// const express=require('express');
+// const connectDB = require('./db/db');
+import express from 'express';
+import connectDB from './db/db.js';
 
 
 const app=express();
