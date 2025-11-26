@@ -1,7 +1,7 @@
-import UserRoles from "../domain/UserRole";
-import Verifcationcode from "../models/VerificationCode";
-import SellerService from "../service/SellerService";
-import jwtProvider from "../utils/jwtProvider";
+import UserRoles from "../domain/UserRole.js";
+import Verifcationcode from "../models/VerificationCode.js";
+import SellerService from "../service/SellerService.js";
+import jwtProvider from "../utils/jwtProvider.js";
 
 class SellerController{
 
