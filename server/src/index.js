@@ -13,9 +13,10 @@ app.use(bodyParser.json());
 
 import adminRoutes from './routers/AdminRoutes.js'
 import sellerRouters from './routers/SellerRoutes.js'
+import authRouters from './routers/AuthRoutes.js'
 
 
-
+app.use("/auth",authRouters)
 app.use("/sellers",sellerRouters)
 app.use("/admin",adminRoutes)
 
