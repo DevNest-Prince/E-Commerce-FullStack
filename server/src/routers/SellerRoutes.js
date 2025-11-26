@@ -1,13 +1,14 @@
 import express from "express";
 import SellerController from "../controllers/SellerController.js";
+import sellerMiddleware from "../middlewares/sellerAuthMMiddleware.js";
 
 const router = express.Router();
 
 
-router.get("/profile",SellerController.getSellerProfile);
+router.get("/profile",sellerMiddleware, SellerController.getSellerProfile);
 router.post("/",SellerController.createSeller);
 router.get("/",SellerController.getAllSellers);
-router.patch("/",SellerController.updateSeller);
+router.patch("/",sellerMiddleware, SellerController.updateSeller);
 
 router.post("/verify/login-otp",SellerController.verifyLoginOtp)
 
