@@ -1,6 +1,6 @@
-import Seller from "../models/Seller"
-import jwtProvider from "../utils/jwtProvider";
-import Address from "../models/Address";
+import Seller from "../models/Seller.js"
+import jwtProvider from "../utils/jwtProvider.js";
+import Address from "../models/Address.js";
 
 class SellerService {
 
@@ -16,7 +16,7 @@ class SellerService {
         savedAddress=await Address.create(sellerData.pickupAddress);
 
         const newSeller=new Seller ({
-            sellerName:sellerData.name,
+            sellerName:sellerData.sellerName,
             email:sellerData.email,
             pickupAddress:savedAddress._id,
             GSTIN:sellerData.GSTIN,
