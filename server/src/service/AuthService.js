@@ -1,14 +1,13 @@
-import Seller from "../models/Seller";
-import Verifcationcode from "../models/VerificationCode";
-import generateOTP from "../utils/generateOtp";
-import sendVerificationEmail from "../utils/sendEmail";
+import Seller from "../models/Seller.js";
+import Verifcationcode from "../models/VerificationCode.js";
+import generateOTP from "../utils/generateOtp.js";
+import sendVerificationEmail from "../utils/sendEmail.js";
 
 class AuthService{
     async sendLoginOTP(email){
 
-        const SIGIN_PREFIX="signin_";
-
-        if(email.startsWith(SIGIN_PREFIX)){
+        const SIGNIN_PREFIX="signin_";
+        if(email.startsWith(SIGNIN_PREFIX)){
             const seller = await Seller.findOne({email});
             if(!seller) throw new Error ("User Not Found");
         }
@@ -25,11 +24,13 @@ class AuthService{
 
         // send email to user
 
-        subject="Your Login OTP for E-commerce Seller Account"
-        body=`<p>Your OTP for login is <b>${otp}</b>. It is valid for 10 minutes</p>`
+        const subject="Your Login OTP for E-commerce Seller Account"
+        const body=`Your OTP is ${otp}.Please enter it to complete your login process.`;
         
         await sendVerificationEmail(email, subject, body);
 
     }
 
 }
+
+export default new AuthService();

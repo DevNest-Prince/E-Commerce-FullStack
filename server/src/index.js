@@ -1,5 +1,6 @@
 import express from 'express';
 import connectDB from './db/db.js';
+import bodyParser from 'body-parser';
 
 
 const app=express();
@@ -7,6 +8,17 @@ const app=express();
 app.get("/",(req ,res)=>{
     res.send({message:"Welcome to the backend of this E-commerce website"})
 })
+
+app.use(bodyParser.json());
+
+import adminRoutes from './routers/AdminRoutes.js'
+import sellerRouters from './routers/SellerRoutes.js'
+
+
+
+app.use("/sellers",sellerRouters)
+app.use("/admin",adminRoutes)
+
 
 const port=5000
 
