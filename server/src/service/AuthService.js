@@ -6,14 +6,18 @@ import generateOTP from "../utils/generateOtp.js";
 import jwtProvider from "../utils/jwtProvider.js";
 import sendVerificationEmail from "../utils/sendEmail.js";
 import bcrypt from "bcryptjs";
+import SellerService from "./SellerService.js";
+import userServices from "./userServices.js";
 
 class AuthService{
     async sendLoginOTP(email){
 
         const SIGNIN_PREFIX="signin_";
         if(email.startsWith(SIGNIN_PREFIX)){
-            const seller = await Seller.findOne({email});
-            if(!seller) throw new Error ("User Not Found");
+            email=email.substring(SIGNIN_PREFIX.length)
+            const seller = await Seller.findOne({email})
+            const user= await User.findOne({email})
+            if(!seller && !user) throw new Error ("User Not Found");
         }
 
         const exitingVerificationCode= await Verifcationcode.findOne({email});
@@ -36,7 +40,7 @@ class AuthService{
     }
 
     async createUser(req){
-        const {email, fullName}=req.body;
+        const {email, fullName,otp}=req;
 
         let user = await User.findOne({email})
 
@@ -44,24 +48,26 @@ class AuthService{
             throw new Error ("User already exists with this email");
         }
 
+        const verificationCode=await Verifcationcode.findOne({email});
+        if(!verificationCode || verificationCode.otp!==otp){
+            throw new Error ("Invalid OTP...");
+        }
+
         user =  new User({
             email,
-            fullName,
-            password: await bcrypt.hash("123456",10)
+            fullName
         })
 
         await user.save();
 
-        const cart = new Cart({
-            user:user._id
-        })
+        const cart = new Cart({user:user._id})
         await cart.save();
 
         return jwtProvider.createJwt({email});
     }
 
     async sigin(req){
-        const {email}=req.body;
+        const {email,otp}=req;
 
         const user=await User.findOne({email});
         if(!user){
@@ -69,8 +75,8 @@ class AuthService{
         }
 
         const varificationCode = await Verifcationcode.findOne({email});
-        if(!varificationCode || varificationCode.otp!=otp){
-            throw new Error ("Please request for OTP again");
+        if(!varificationCode || varificationCode.otp!==otp){
+            throw new Error ("Invalid OTP");
         }
 
         return {
