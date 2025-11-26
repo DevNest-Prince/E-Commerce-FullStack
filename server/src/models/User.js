@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
-import UserRoles from "../domain/UserRole";
-import Address from "./Address";
+import UserRoles from "../domain/UserRole.js";
+import Address from "./Address.js";
 
 
 const userSchema = new mongoose.Schema({
