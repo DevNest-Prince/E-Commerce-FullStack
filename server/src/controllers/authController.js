@@ -1,5 +1,5 @@
-import UserRoles from "../domain/UserRole";
-import AuthService from "../service/AuthService";
+import UserRoles from "../domain/UserRole.js";
+import AuthService from "../service/AuthService.js";
 
 class AuthController{
     async sendLoginOtp(req,res){
