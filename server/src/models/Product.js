@@ -2,38 +2,38 @@ import mongoose from "mongoose"
 
 const productSchema=new mongoose.Schema({
     title:{
-        typeof:String,
+        type:String,
         required:true,
         trim:true
     },
-    desription:{
-        typeof:String,
+    description:{
+        type:String,
         required:true,
-        trim:true
+
     },
     mrpPrice:{
-        typeof:Number,
+        type:Number,
         required:true,
     },
     sellingPrice:{
-        typeof:Number,
+        type:Number,
         required:true,
     },
     discountPresent:{
-        typeof:Number,
+        type:Number,
         required:true
     },
     quantity:{
-        typeof:Number,
+        type:Number,
         required:true
     },
-    colour:{
-        typeof:Number,
+    color:{
+        type:String,
         required:true
     },
     images:{
         type:[String],
-        required:true
+        
     },
     category:{
         type:mongoose.Schema.Types.ObjectId,
