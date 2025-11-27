@@ -15,7 +15,6 @@ import adminRoutes from './routers/AdminRoutes.js'
 import sellerRouters from './routers/SellerRoutes.js'
 import authRouters from './routers/AuthRoutes.js'
 import userRouters from './routers/UserRoutes.js'
-
 import productRoutes from './routers/ProductRoutes.js'
 import sellerProductRoutes from './routers/sellerProductRoutes.js'
 
