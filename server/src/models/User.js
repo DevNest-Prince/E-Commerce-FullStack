@@ -4,7 +4,7 @@ import Address from "./Address.js";
 
 
 const userSchema = new mongoose.Schema({
-    name:{
+    fullName:{
         type:String,
         required:true
     },
@@ -16,18 +16,17 @@ const userSchema = new mongoose.Schema({
     },
 
     password:{
-        type:String,
-        required:true
+        type:String
     },
 
     mobile:{
         type:String
     },
 
-    addresss:[
+    addresses:[
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Address"
+            ref: "Address",
         }
     ],
 
