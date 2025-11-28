@@ -17,6 +17,7 @@ import authRouters from './routers/AuthRoutes.js'
 import userRouters from './routers/UserRoutes.js'
 import productRoutes from './routers/ProductRoutes.js'
 import sellerProductRoutes from './routers/sellerProductRoutes.js'
+import CartRoutes from './routers/CartRoutes.js'
 
 
 
@@ -25,6 +26,7 @@ app.use("/api/users",userRouters)
 app.use("/sellers",sellerRouters)
 app.use("/products",productRoutes);
 app.use("/api/sellers/products",sellerProductRoutes);
+app.use("/api/cart",CartRoutes)
 app.use("/admin",adminRoutes)
 
 
