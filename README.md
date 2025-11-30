@@ -114,8 +114,7 @@ E-Commerce-FullStack/
 
 ## 🤝 Contributing
 
-Contributions are welcome!
-
+Contributions are welcome!  
 - Fork the repository
 - Create your feature branch (`git checkout -b feature/YourFeature`)
 - Commit your changes (`git commit -m 'Add some feature'`)
