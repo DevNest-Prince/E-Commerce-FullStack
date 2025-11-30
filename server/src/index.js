@@ -18,6 +18,8 @@ import userRouters from './routers/UserRoutes.js'
 import productRoutes from './routers/ProductRoutes.js'
 import sellerProductRoutes from './routers/sellerProductRoutes.js'
 import CartRoutes from './routers/CartRoutes.js'
+import orderRoutes from './routers/orderRoutes.js'
+import sellerOrderRoutes from './routers/sellerOrderRoutes.js'
 
 
 
@@ -27,6 +29,8 @@ app.use("/sellers",sellerRouters)
 app.use("/products",productRoutes);
 app.use("/api/sellers/products",sellerProductRoutes);
 app.use("/api/cart",CartRoutes)
+app.use("/api/orders",orderRoutes)
+app.use("api/seller/orders",sellerOrderRoutes)
 app.use("/admin",adminRoutes)
 
 
