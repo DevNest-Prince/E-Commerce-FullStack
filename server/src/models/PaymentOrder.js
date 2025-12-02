@@ -1,8 +1,8 @@
-import { mongo, Schema } from "mongoose";
+import mongoose from "mongoose";
 import PaymentStatus from "../domain/PaymentStatus.js";
 
 
-const paymentOrderSchema = new Schema({
+const paymentOrderSchema = new mongoose.Schema({
     amount: {
         type: Number,
         required: true
