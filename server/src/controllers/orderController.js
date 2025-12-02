@@ -1,5 +1,6 @@
 import CartService from '../service/CartService.js'
 import OrderService from '../service/OrderService.js';
+import PaymentService from '../service/PaymentService.js';
 
 class OrderController {
   // Create a new order
@@ -13,11 +14,26 @@ class OrderController {
         const user = await req.user;
 
         const cart = await CartService.findUserCart(user);
-        const orders = await OrderService.createOrder(user, 
+        const orders = await OrderService.createOrder (
+            user, 
             shippingAddress, 
-            cart);
+            cart
+          );
 
-        return res.status(200).json(orders);
+        const paymentOrder = await PaymentService.createOrder(user, orders);
+
+        const response = {};
+          
+        if(paymentMethod==="RAZORPAY"){
+          const payment = await PaymentService.createRazorPayPaymentLink(user, paymentOrder.amount, paymentOrder._id);
+
+          response.payment_link_url = payment.short_url;
+          paymentOrder.paymentLinkId = payment.id;
+
+          await paymentOrder.findByIdAndUpdate(paymentOrder._id, paymentOrder);
+        }
+
+        return res.status(200).json(response);
 
     } catch (error) {
     //   console.log("error ",error)
