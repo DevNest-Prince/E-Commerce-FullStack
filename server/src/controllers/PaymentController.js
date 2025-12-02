@@ -51,7 +51,7 @@ const paymentHandler = async (req, res) => {
             return res.status(201).json({
                 message: "Payment successful"
             })
-            
+
         } else {
             return res.status(400).json({
                 message: "Payment failed"
@@ -66,4 +66,4 @@ const paymentHandler = async (req, res) => {
     }
 }
 
-export { paymentHandler };
+export default { paymentHandler };
