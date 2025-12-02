@@ -20,17 +20,27 @@ import sellerProductRoutes from './routers/sellerProductRoutes.js'
 import CartRoutes from './routers/CartRoutes.js'
 import orderRoutes from './routers/orderRoutes.js'
 import sellerOrderRoutes from './routers/sellerOrderRoutes.js'
+import PaymentRoutes from './routers/PaymentRoutes.js'
+import transactionRoutes from './routers/TransactionRoutes.js'
+import sellerReportRoutes from './routers/SellerReportRoutes.js'
 
 
 
 app.use("/auth",authRouters)
 app.use("/api/users",userRouters)
 app.use("/sellers",sellerRouters)
+
 app.use("/products",productRoutes);
 app.use("/api/sellers/products",sellerProductRoutes);
+
 app.use("/api/cart",CartRoutes)
 app.use("/api/orders",orderRoutes)
 app.use("api/seller/orders",sellerOrderRoutes)
+
+app.use('api/payment',PaymentRoutes)
+app.use("/api/transactions",transactionRoutes)
+app.use("/api/sellers/reports",sellerReportRoutes)
+
 app.use("/admin",adminRoutes)
 
 
