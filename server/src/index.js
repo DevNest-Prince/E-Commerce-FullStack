@@ -23,6 +23,8 @@ import sellerOrderRoutes from './routers/sellerOrderRoutes.js'
 import PaymentRoutes from './routers/PaymentRoutes.js'
 import transactionRoutes from './routers/TransactionRoutes.js'
 import sellerReportRoutes from './routers/SellerReportRoutes.js'
+import DealRoutes from './routers/DealRoutes.js';
+import HomeCategoryRoutes from './routers/HomeCategoryRoutes.js';
 
 
 
@@ -42,6 +44,9 @@ app.use("/api/transactions",transactionRoutes)
 app.use("/api/sellers/reports",sellerReportRoutes)
 
 app.use("/admin",adminRoutes)
+
+app.use("/admin/deals",DealRoutes);
+app.use("/home",HomeCategoryRoutes);
 
 
 const port=5000
