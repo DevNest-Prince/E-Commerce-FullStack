@@ -1,11 +1,13 @@
 import nodemailer from 'nodemailer';
+import dotenv from "dotenv";
 
+dotenv.config();
 async function sendVerificationEmail(to, subject, body) {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
-            user: "your_email",
-            pass: "your_password"
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
         }
     })
 
