@@ -1,0 +1,47 @@
+/* Main Card Styling */
+.metric-card {
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(9, 31, 60);
+    color: rgb(236, 239, 241);
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.metric-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* BEFORE */
+.metric-card::before {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: linear-gradient(
+        140deg,
+        rgba(133, 145, 161, 0.4) -14%,
+        rgba(144, 202, 249, 0) 77%
+    );
+    border-radius: 50%;
+    top: -160px;
+    right: -130px;
+}
+
+/* AFTER */
+.metric-card::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: linear-gradient(
+        210deg,
+        rgba(133, 145, 161, 0.4) -50%,
+        rgba(144, 202, 249, 0) 83%
+    );
+    border-radius: 50%;
+    top: -30px;
+    right: -180px;
+}
