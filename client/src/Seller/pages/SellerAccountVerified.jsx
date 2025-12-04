@@ -1,0 +1,26 @@
+import React from "react";
+import { Alert, Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+
+const SellerAccountVerified = () => {
+  const navigate = useNavigate();
+
+  return (
+    <div className="h-[80vh] flex flex-col justify-center items-center space-y-4">
+
+      <Alert variant="filled" severity="success">
+        Your Email Has Been Successfully Verified!
+      </Alert>
+
+      <Button
+        variant="contained"
+        onClick={() => navigate("/become-seller")}
+      >
+        Login As Seller
+      </Button>
+
+    </div>
+  );
+};
+
+export default SellerAccountVerified;
