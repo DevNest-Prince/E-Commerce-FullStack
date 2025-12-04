@@ -5,12 +5,14 @@ import SellerDrawerList from "../../components/SideBar/DrawerList";
 const SellerDashboard = () => {
   return (
     <div className="min-h-screen">
-      <Navbar DrawerList={SellerDrawerList}/>
+      <Navbar DrawerList={SellerDrawerList} />
+
       <section className="lg:flex lg:h-[90vh]">
         <div className="hidden lg:block h-full">
-        <SellerDrawerList/>
+          <SellerDrawerList />
         </div>
-        <div className="p-10 w-full lg:w-[80%]  overflow-y-auto">
+
+        <div className="p-10 w-full lg:w-[80%] overflow-y-auto">
           <SellerRoutes />
         </div>
       </section>
